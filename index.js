@@ -1,25 +1,49 @@
+let message = ""
+let firstCard = 0
+let secondCard = 0
+let sum = 0
+let cards = []
+let hasBlackjack = false;
+let isStillInGame = false;
 let sumEl = document.querySelector("#sum-el");
 let cardsEl = document.querySelector("#cards-el");
 let messageEl = document.querySelector("#message-el");
-let firstCard = 0
-let secondCard = 0
-let cards = []
+let playerEl = document.querySelector("#player-el")
+let player = {
+    name: "Caroline",
+    chips: 500,
+}
+
+playerEl.textContent = player.name + ": $" + player.chips
 
 // starting the game
 
 function startGame(){
+    isStillInGame = true;
+    let firstCard = randomCard();
+    let secondCard = randomCard();
+    sum = firstCard + secondCard;
+    cards = [firstCard, secondCard]
     renderGame();
 }
 
 function renderGame(){
-    let firstCard = randomCard();
-    let secondCard = randomCard();
-    sum = firstCard + secondCard;
-    cards.push(firstCard)
-    cards.push(secondCard)
+    cardsEl.textContent = "Cards: " 
+    for (let i = 0; i < cards.length; i++) {
+        cardsEl.textContent += cards[i] + " ";
+    };
 
-    cardsEl.innerText = "Cards: " + cards
-    sumEl.innerText = "Sum: " + sum
+    sumEl.textContent = "Sum: " + sum
+    if (sum < 21){
+        message = "Do you want to draw a new card?"
+    } else if (sum === 21){
+        message = "You've got blackjack!"
+        hasBlackjack = true;
+    } else {
+        message = "You're out of the game"
+        isStillInGame = false;
+    }
+    messageEl.textContent = message
 }
 
 // drawing cards
@@ -36,5 +60,11 @@ function randomCard() {
 }
 
 function newCard() {
-
+    if (isStillInGame === true && hasBlackjack === false) {
+        let newValue = randomCard();
+        sum += newValue
+    
+        cards.push(newValue);
+        renderGame();
+    }
 }
