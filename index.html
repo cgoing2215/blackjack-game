@@ -3,13 +3,17 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <h1>Blackjack</h1>
-        <p id="message-el" class="darkened-background">Want to play a round?</p>
-        <p id="cards-el" class="darkened-background">Cards:</p>
-        <p id="sum-el" class="darkened-background">Sum:</p>
-        <button onclick="startGame()" id="button">START GAME</button>
-        <button onclick="newCard()" id="button">NEW CARD</button>
-        <p id="player-el"><input placeholder="Enter your first initial" name="name"/></p>
+        <div id="container">
+            <h1>Blackjack</h1>
+            <p id="message-el" class="darkened-background">Want to play a round?</p>
+            <p id="cards-el" class="darkened-background">Cards:</p>
+            <p id="sum-el" class="darkened-background">Sum:</p>
+            <button onclick="startGame()" id="button">START GAME</button>
+            <button onclick="newCard()" id="button">NEW CARD</button>
+            <div id="player-status">
+                <p></p>
+            </div>
+        </div>
         <script src="index.js"></script>
     </body>
 </html>

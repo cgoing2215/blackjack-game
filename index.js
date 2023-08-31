@@ -8,28 +8,27 @@ let isStillInGame = false;
 let sumEl = document.querySelector("#sum-el");
 let cardsEl = document.querySelector("#cards-el");
 let messageEl = document.querySelector("#message-el");
-let playerEl = document.querySelector("#player-el")
 let button = document.querySelectorAll(".button")
-const input = document.querySelector("input");
+let playerStatus = document.querySelector("#player-status")
 
 let player = {
-    name: "",
+    name: input.value,
     chips: 500,
 }
 
 // allow interactive name adding
 
-input.addEventListener("input", updateValue);
+function updateStatus() {
+    const input = prompt("What's your name?")
 
-function updateValue(e) {
-  player.name = e.target.value;
-
-  playerEl.textContent = player.name + ": $" + player.chips;
+    playerStatus.innerHTML = `${input}: $${player.chips}`
 }
 
 // starting the game
 
 function startGame(){
+    updateStatus();
+
     messageEl.classList.remove("lose");
     messageEl.classList.remove("win");
 

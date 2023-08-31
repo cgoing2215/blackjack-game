@@ -1,16 +1,22 @@
 body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', Arial, sans-serif;
-    background-image: url("https://www.casinoguardian.co.uk/wp-content/uploads/2017/09/Online-Blackjack.svg");
+    background-image: url("https://t4.ftcdn.net/jpg/03/62/05/31/360_F_362053188_oQ0WRHCFkIY4QlXS1S5d1i9bpYup67ll.jpg");
     background-size: cover;
     background-position: right;
     font-weight: bold;
     color: white;
-    text-align: center;
-    margin-top: 20%;
-    margin-left: 30%;
-    width: 40%;
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
+#container {
+    width: 500px;
+    text-align: center;
+    margin-top: 12rem;
+}
+
 
 .hidden {
     display: none;
@@ -51,4 +57,9 @@ button {
     border-radius: 2px;
     margin-bottom: 2px;
     margin-top: 2px;
+}
+
+#player-status p {
+    font-size: 12px;
+    color: white;
 }
